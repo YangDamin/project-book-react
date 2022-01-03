@@ -5,6 +5,7 @@ import Book from '../book/Book';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import Nav from '../common/Nav';
+import Item from '../main/Item';
 
 
 const Main = () => {
@@ -13,6 +14,7 @@ const Main = () => {
 
       <Header></Header>
       <Nav></Nav>
+      <Item></Item>
       <Footer></Footer>
     </div>
   );
