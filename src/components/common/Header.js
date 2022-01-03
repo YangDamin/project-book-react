@@ -1,10 +1,11 @@
 import React from 'react';
+import './Header.css';
 
 const Header = () => {
   return (
     <div>
       <nav class="bg-white navbar navbar-expand-lg navbar-light py-lg-1">
-        <div class="container"> <a class="fw-bold navbar-brand" href="#" target="_pg_blank">HANBOOK</a>
+        <div className="container"><a class="navbar-brand" href="#" target="_pg_blank">HANBOOK</a>
           <ul class="flex-row ms-auto navbar-nav order-lg-1 ps-2 pe-2">
             <li class="nav-item"> <a class="nav-link p-2 pb-3 ps-2 pe-2 pt-3" href="#" title="Search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.25em" height="1.25em">
               <g>
