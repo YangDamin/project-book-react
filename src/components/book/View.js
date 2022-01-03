@@ -4,14 +4,14 @@ const View = () => {
             <div class="container">
                 <div class="justify-content-center row">
                     <div class="col-6 col-lg-3 col-md-4 pb-3 pt-3">
-                        <div> <a href="#" class="d-block mb-3"><img src="https://images.unsplash.com/photo-1598403031688-e7cfd2c222c4?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDM2NXx8dCUyMHNoaXJ0fGVufDB8fHw&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=500&h=700&fit=crop" class="img-fluid w-100" alt="Product image" width="500" height="700" /></a><a href="#" class="d-inline-block link-secondary mb-2 small text-decoration-none">Armani</a><a href="#" class="link-dark text-decoration-none"><h3 class="h6">Borgonuovo T-shirt in viscose jersey</h3></a>
-                            <div><s class="me-2">$ 95</s><span class="h6 text-danger">$ 75</span>
+                        <div> <a href="#" class="d-block mb-3"><img src="image/book/novel11.jpg" class="img-fluid w-100" alt="Product image" width="500" height="700" /></a><a href="#" class="d-inline-block link-secondary mb-2 text-decoration-none">소설</a><a href="#" class="link-dark text-decoration-none"><h3 class="h6">불편한 편의점</h3></a>
+                            <div><span class="h6">14,000원</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-4 pb-3 pt-3">
-                        <div> <a href="#" class="d-block mb-3"><img src="https://images.unsplash.com/photo-1589747297079-6ab76138dcab?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDJ8fHQtc2hpcnR8ZW58MHx8fA&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=500&h=700&fit=crop" class="img-fluid w-100" alt="Product image" width="500" height="700" /></a><a href="#" class="d-inline-block link-secondary mb-2 small text-decoration-none">Armani</a><a href="#" class="link-dark text-decoration-none"><h3 class="h6">Borgonuovo T-shirt in viscose jersey</h3></a>
-                            <div><span class="me-2">$ 100</span>
+                        <div> <a href="#" class="d-block mb-3"><img src="image/book/novel12.jpg" class="img-fluid w-100" alt="Product image" width="500" height="700" /></a><a href="#" class="d-inline-block link-secondary mb-2 small text-decoration-none">소설</a><a href="#" class="link-dark text-decoration-none"><h3 class="h6">미드나잇 라이브러리</h3></a>
+                            <div><span class="h6">15,800원</span>
                             </div>
                         </div>
                     </div>
