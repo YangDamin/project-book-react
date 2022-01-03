@@ -1,12 +1,15 @@
 import React from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
+import Nav from '../common/Nav';
+import View from './View';
 
 const Book = () => {
   return (
     <div>
       <Header></Header>
-      <h1>Book Page!!</h1>
+      <Nav/>
+      <View/>
       <Footer></Footer>
     </div>
   );
