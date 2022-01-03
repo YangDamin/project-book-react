@@ -4,6 +4,7 @@ import Signin from './components/user/Signin';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Main from './components/main/Main';
 import Book from './components/book/Book';
+import BookDetail from './components/book/BookDetail';
 import UserUpdate from './components/mypage/UserUpdate';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           </Route>
           <Route path="/user/signin" element={<Signin></Signin>}></Route>
           <Route path="/book" element={<Book></Book>}></Route>
+          <Route path="/book/detail" element={<BookDetail/>}></Route>
           <Route path="/user/update" element={<UserUpdate></UserUpdate>}></Route>
         </Routes>
       </BrowserRouter>
