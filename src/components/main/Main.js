@@ -19,7 +19,7 @@ const Main = () => {
 
         </Route>
         <Route path="/book" element={<Book></Book>}>
-          <Route path="*"></Route>
+          <Route path=":category"></Route>
         </Route>
       </Routes>
       <Footer></Footer>
