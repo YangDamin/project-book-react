@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import logo from './logo.svg';
 // import './App.css';
 import Signin from './components/user/Signin';
@@ -6,8 +8,7 @@ import Main from './components/main/Main';
 import Book from './components/book/Book';
 import BookDetail from './components/book/BookDetail';
 
-function App() {
-  return (
+function App() { return (
     <div className="App">
       <BrowserRouter>
         <Routes>

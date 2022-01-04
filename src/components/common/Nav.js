@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Nav.css';
 
 const Nav = () => {
@@ -6,17 +7,17 @@ const Nav = () => {
         <nav class="bg-white navbar navbar-expand-lg navbar-light py-lg-1 mb-lg-5">
             <div class="collapse navbar-collapse " id="navbarNavDropdown-3">
                 <ul class="mx-auto navbar-nav">
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">소설</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/소설">소설</Link>
                     </li>
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">시/에세이</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/시·에세이">시/에세이</Link>
                     </li>
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">자기계발</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/자기계발">자기계발</Link>
                     </li>
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">경제/경영</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/경제·경영">경제/경영</Link>
                     </li>
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">컴퓨터/IT</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/컴퓨터·IT">컴퓨터/IT</Link>
                     </li>
-                    <li className="nav-item"> <a class="nav-link px-lg-3 h2" href="#">예술</a>
+                    <li className="nav-item"> <Link class="nav-link px-lg-3 h2" to ="/book/예술">예술</Link>
                     </li>
                 </ul>
             </div>

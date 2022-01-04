@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
 return (
-<footer class="bg-dark pt-5 text-white"> 
+<footer class="bg-dark pt-5 mt-lg-5 text-white"> 
   <div class="container"> 
       <div class="row"> 
           <div class="col-xl-4 me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">PG Pro Services</a> 
