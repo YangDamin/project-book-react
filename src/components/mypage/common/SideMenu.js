@@ -51,6 +51,11 @@ const SideMenu = () => {
                 <span class="h4">독서노트&nbsp;&nbsp;<i class="far fa-clipboard"></i></span>
               </button>
             </NavLink>
+            <br />
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <NavLink to="/mypage/diary/list"><button type="button" class="btn btn-outline-dark">목록 보기</button></NavLink>
+              <NavLink to="/mypage/diary/write"><button type="button" class="btn btn-outline-dark">작성 하기</button></NavLink>
+            </div>
           </li>
         </ul>
       </nav>
