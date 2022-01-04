@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap');
+
 .fill {
     object-fit: fill;
+    
+}
+
+.d-flex {
+    display: flex !important;
+  }
+
+input {
+    max-width: 3rem;
 }
