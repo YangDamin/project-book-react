@@ -9,6 +9,6 @@
     display: flex !important;
   }
 
-input {
+#inputQuantity {
     max-width: 3rem;
 }
