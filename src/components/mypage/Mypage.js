@@ -15,7 +15,7 @@ const Mypage = () => {
         <Route path="/" element={<UserCheckout></UserCheckout>}></Route>
         <Route path="/userProfile" element={<UserProfile></UserProfile>}></Route>
         <Route path='/userUpdate' element={<UserUpdate></UserUpdate>}></Route>
-        <Route path="/diary" element={<Diary></Diary>}></Route>
+        <Route path="/diary/*" element={<Diary></Diary>}></Route>
       </Routes>
     </div >
   );

@@ -2,9 +2,7 @@ import React from 'react';
 
 const UpdateDiary = () => {
   return (
-    <div>
-
-    </div>
+    <h1>독서노트 수정</h1>
   );
 };
 
