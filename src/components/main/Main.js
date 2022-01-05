@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import Book from '../book/Book';
+import BookDetailView from '../book/BookDetailView';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import Nav from '../common/Nav';
@@ -18,8 +19,11 @@ const Main = () => {
         <Route path='/mypage/*' element={<Mypage></Mypage>}>
 
         </Route>
-        <Route path="/book" element={<Book></Book>}>
+        <Route path="/book/category" element={<Book></Book>}>
           <Route path=":category"></Route>
+        </Route>
+        <Route path="/book/detail" element={<BookDetailView />}>
+          <Route path=":bookid"></Route>
         </Route>
       </Routes>
       <Footer></Footer>
