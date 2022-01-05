@@ -1,7 +1,28 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const DiaryList = () => {
-
+  const [diaryList, setDiaryList] = useState([]);
+  console.log(diaryList);
+  useEffect(() => {
+    const id = sessionStorage.getItem("userId");
+    const email = sessionStorage.getItem("email");
+    const password = sessionStorage.getItem("password");
+    const formData = new FormData();
+    formData.append("userId", id);
+    const result = axios({
+      url: 'http://localhost:8080/mypage/diary/list',
+      method: 'post',
+      data: formData
+    });
+    result.then((res) => {
+      console.log(res);
+      console.log("DiaryList 비동기통신 결과:")
+      console.log(res.data);
+      const responseData = res.data;
+      setDiaryList(responseData);
+    });
+  }, []);//deps
   return (
     <div class="col-9 mx-auto">
       <div class="row">
@@ -33,13 +54,20 @@ const DiaryList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>bookDiary.name</td>
-            <td>bookDiary.title</td>
-            <td>bookDiary.lastUpdatedDate</td>
-            <td><button class="btn btn-dark">삭제</button></td>
-          </tr>
+          {diaryList.map((diary) => {
+            return (
+              <tr>
+                <th scope="row">1</th>
+                <td>{diary.book.name}</td>
+                <td>{diary.title}</td>
+                <td>{diary.lastUpdatedDate}</td>
+                <td>
+                  <button class="btn btn-dark mr-2" data-id={diary.id} onClick={(e) => { }}>수정</button>&nbsp;
+                  <button class="btn btn-dark" data-id={diary.id} onClick={() => { }}>삭제</button></td>
+              </tr>
+            );
+          })}
+
           <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
