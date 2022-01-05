@@ -1,31 +1,13 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
 
-
-const WriteDiary = () => {
-  const [dataList, setDataList] = useState([]);
-  const [data, setData] = useState({ orderDate: new Date().toISOString().slice(0, 10), book: { imageurl: "/image/book/default-book.jpg", author: '작가', } });
-  useEffect(() => {
-    const formData = new FormData();
-    formData.append("userId", 'phyw1129@naver.com');
-    formData.append("userPassword", "1234")
-    const result = axios({
-      url: 'http://localhost:8080/mypage/orders/list',
-      method: 'post',
-      data: formData
-    });
-    result.then((res) => {
-      console.log(res);
-      console.log("WriteDiary 비동기통신 결과:")
-      console.log(res.data);
-      const responseData = res.data;
-      // const books = dataList.map((data) => data.book);
-      setDataList(responseData);
-    });
-  }, []);//deps
+const DiaryDetail = () => {
+  const { id } = useParams();
+  console.log("Update Diary ID:", id);
+  const [data, setData] = useState({ orderDate: new Date().toISOString().slice(0, 10), book: { name: "책제목", imageurl: "/image/book/default-book.jpg", author: '작가', } });
   return (
     <div class="col-lg-6" id="contents">
-      <h3>독서 노트 작성 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
+      <h3>독서 노트 수정 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
       <form>
         <div class="row">
           <div class="col-lg-5">
@@ -36,7 +18,7 @@ const WriteDiary = () => {
                   <tr>
                     <th scope="row">책제목</th>
                     <td>
-                      <select name="bookId" id="bookId"
+                      {/* <select name="bookId" id="bookId"
                         onChange={(e) => {
                           const bookId = e.target.value;
                           const bookInfo = dataList.find((data) => data.book.id == bookId);
@@ -49,7 +31,8 @@ const WriteDiary = () => {
                             <option key={data.book.id} value={data.book.id}>{data.book.name}</option>
                           )
                         })}
-                      </select>
+                      </select> */}
+                      <h5>{data.book.name}</h5>
                     </td>
                   </tr>
                   <tr>
@@ -62,7 +45,7 @@ const WriteDiary = () => {
                     <td><h5>{data.orderDate}</h5></td>
                   </tr>
                   <tr>
-                    <th scope="row">오늘 날짜</th>
+                    <th scope="row">작성일</th>
                     <td><h5>{new Date().toISOString().slice(0, 10)}</h5></td>
                   </tr>
                 </tbody>
@@ -88,4 +71,4 @@ const WriteDiary = () => {
   );
 };
 
-export default WriteDiary;
+export default DiaryDetail;

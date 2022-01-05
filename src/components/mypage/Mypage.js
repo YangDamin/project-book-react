@@ -12,7 +12,7 @@ const Mypage = () => {
     <div className="row">
       <SideMenu></SideMenu>
       <Routes>
-        <Route path="/" element={<UserCheckout></UserCheckout>}></Route>
+        <Route path="/" element={<UserProfile></UserProfile>}></Route>
         <Route path="/userProfile" element={<UserProfile></UserProfile>}></Route>
         <Route path='/userUpdate' element={<UserUpdate></UserUpdate>}></Route>
         <Route path="/diary/*" element={<Diary></Diary>}></Route>

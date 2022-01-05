@@ -6,16 +6,19 @@ import React, { useEffect, useState } from 'react';
 const UserProfile = () => {
   const [user, setUser] = useState({});
   useEffect(() => {
+    const formData = new FormData();
+    formData.append("userId", 'phyw1129@naver.com');
+    formData.append("userPassword", "1234")
     const result = axios({
-      url: 'http://localhost:8080/mypage/userUpdate',
-      method: 'get',
-      params: { userId: 'phyw1129@naver.com', userPassword: 1234 }
+      url: 'http://localhost:8080/mypage/userProfile',
+      method: 'post',
+      data: formData
     });
     result.then((res) => {
       console.log(res);
       console.log(res.data);
       setUser(res.data);
-    }, []);//deps
+    });//deps
   }, []);
   return (
     <div class="col-lg-6" id="contents">
@@ -45,7 +48,7 @@ const UserProfile = () => {
         <br />
         <label>
           <p class="my-3 p-1 fs-4"><b>주소 :</b></p>
-          <span class="fs-4">&nbsp;&nbsp;{user.address}</span>
+          <span class="fs-4">[{user.postcode}]&nbsp;&nbsp;{user.address1} {user.address2}</span>
         </label>
         <br />
         <label>
