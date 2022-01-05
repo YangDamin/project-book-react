@@ -1,10 +1,63 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './SideMenu.css';
 
 const SideMenu = () => {
   return (
-    <div class="col-lg-3 bg-light bg-gradient m-5 border border-dark">
-      <nav class="text-center">
+    <div class="col-2">
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="collapse navbar-collapse" id="sidebar">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="sidebar">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userProfile">
+                  회원정보조회
+                </Link>
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userUpdate">
+                  회원정보수정
+                </Link>
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userQuit">
+                  회원탈퇴
+                </Link>
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/order/list">
+                  주문내역
+                </Link>
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/diary">
+                  독서노트
+                  <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/list" id='diary'>
+                    독서노트 목록보기
+                  </Link>
+                  <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/write" id='diary'>
+                    독서노트 작성하기
+                  </Link>
+                </Link>
+
+              </div>
+              <div class="col-lg-9">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      {/* <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel Title</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="#">HTML</a></li>
+          <li class="list-group-item"><a href="#">CSS</a></li>
+          <li class="list-group-item"><a href="#">ECMAScript5</a></li>
+        </ul>
+      </div> */}
+
+
+
+
+
+      {/* <nav class="text-center">
         <ul class="list-unstyled ">
           <li class="pt-4">
             <NavLink to="/mypage/userProfile">
@@ -58,7 +111,7 @@ const SideMenu = () => {
             </div>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </div>
   );
 };

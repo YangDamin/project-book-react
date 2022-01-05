@@ -7,8 +7,11 @@ const UserProfile = () => {
   const [user, setUser] = useState({});
   useEffect(() => {
     const formData = new FormData();
-    formData.append("userId", 'phyw1129@naver.com');
-    formData.append("userPassword", "1234")
+    const id = sessionStorage.getItem("userId");
+    const email = sessionStorage.getItem("email");
+    const password = sessionStorage.getItem("password");
+    formData.append("userId", email);
+    formData.append("userPassword", password)
     const result = axios({
       url: 'http://localhost:8080/mypage/userProfile',
       method: 'post',
@@ -21,7 +24,7 @@ const UserProfile = () => {
     });//deps
   }, []);
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <h3> My Profile</h3>
 
       <div class="mt-3  bg-light bg-gradient">

@@ -6,9 +6,12 @@ const WriteDiary = () => {
   const [dataList, setDataList] = useState([]);
   const [data, setData] = useState({ orderDate: new Date().toISOString().slice(0, 10), book: { imageurl: "/image/book/default-book.jpg", author: '작가', } });
   useEffect(() => {
+    const id = sessionStorage.getItem("userId");
+    const email = sessionStorage.getItem("email");
+    const password = sessionStorage.getItem("password");
     const formData = new FormData();
-    formData.append("userId", 'phyw1129@naver.com');
-    formData.append("userPassword", "1234")
+    formData.append("userId", email);
+    formData.append("userPassword", password)
     const result = axios({
       url: 'http://localhost:8080/mypage/orders/list',
       method: 'post',
@@ -24,7 +27,7 @@ const WriteDiary = () => {
     });
   }, []);//deps
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <h3>독서 노트 작성 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
       <form>
         <div class="row">
