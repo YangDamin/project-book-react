@@ -5,9 +5,9 @@ return (
 <footer class="bg-dark pt-5 mt-lg-5 text-white"> 
   <div class="container"> 
       <div class="row"> 
-          <div class="col-xl-4 me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">PG Pro Services</a> 
+          <div class="col-xl-4 me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">HAN BOOK</a> 
               <p class="mb-3">                                Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec. Fusce et porttitor libero, eu aliquam nisi. Nam finibus ullamcorper semper.</p> 
-              <div class="mb-4"> <a href="#" class="link-light text-decoration-none">+1 234 567-890</a> <br/> <a href="#" class="link-light text-decoration-none">hello@company.com</a> 
+              <div class="mb-4"> <a href="#" class="link-light text-decoration-none">+1 234 567-890</a> <br/> <a href="#" class="link-light text-decoration-none">hello@HANBOOK.com</a> 
               </div>                 
               <div class="d-inline-flex flex-wrap"> <a href="#" class="link-light p-1" aria-label="facebook-link"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"> 
                           <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/> 
@@ -68,7 +68,7 @@ return (
       </div>         
       <div class="pb-3 pt-3 text-center"> 
           <hr class="border-light mt-0"/> 
-          <p class="mb-0">Copyright &copy; 2021 Company Name</p> 
+          <p class="mb-0">Copyright &copy; 2022 HAN BOOK</p> 
       </div>         
   </div>     
 </footer>
