@@ -61,6 +61,8 @@ const Signin = () => {
                     navigate("/");
                   } else if (result.code == 400) {
                     alert(result.msg);
+                    document.getElementById("email").value = "";
+                    document.getElementById("password").value = "";
                   }
                 });
               }}>로그인</Button>
