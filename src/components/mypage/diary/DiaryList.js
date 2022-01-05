@@ -3,7 +3,7 @@ import React from 'react';
 const DiaryList = () => {
 
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <div class="row">
 
         <div class="col-lg-4 ml-0">

@@ -9,7 +9,9 @@ const Signout = () => {
     sessionStorage.removeItem("userId");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("password");
-    navigate("/");
+    // navigate("/");
+    alert("로그아웃 Complete");
+    window.location.href = "/";
   }, []);
 
   return (

@@ -5,9 +5,10 @@ return (
 <footer class="bg-dark pt-5 mt-lg-5 text-white"> 
   <div class="container"> 
       <div class="row"> 
-          <div class="col-xl-4 me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">HAN BOOK</a> 
-              <p class="mb-3">                                Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec. Fusce et porttitor libero, eu aliquam nisi. Nam finibus ullamcorper semper.</p> 
-              <div class="mb-4"> <a href="#" class="link-light text-decoration-none">+1 234 567-890</a> <br/> <a href="#" class="link-light text-decoration-none">hello@HANBOOK.com</a> 
+          <div class="col-xl-6 me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">HANBOOK</a> 
+              <p>(주)HANBOOK</p>
+              <p>서울시 금천구 가산디지털1로 168, 우림라이온스밸리 A동 한가람IT전문교육센터</p> 
+              <div class="mb-4"> <a href="#" class="link-light text-decoration-none">+1 1544-0000</a> <br/> <a href="#" class="link-light text-decoration-none">hello@HANBOOK.com</a> 
               </div>                 
               <div class="d-inline-flex flex-wrap"> <a href="#" class="link-light p-1" aria-label="facebook-link"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"> 
                           <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/> 
@@ -22,53 +23,10 @@ return (
                       </svg> </a> 
               </div>                 
           </div>             
-          <div class="col-sm-4 col-xl-2 py-3"> 
-              <h2 class="fw-bold h5 mb-4 text-uppercase text-white">About</h2> 
-              <ul class="list-unstyled"> 
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Get Quote</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Enterprise Plan</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Become an Affiliate</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Our Portfolio</a> 
-                  </li>                     
-              </ul>                 
-          </div>             
-          <div class="col-sm-4 col-xl-2 py-3"> 
-              <h2 class="fw-bold h5 mb-4 text-uppercase text-white">Services</h2> 
-              <ul class="list-unstyled"> 
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Web Design</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Web Development</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">WordPress</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Digital Marketing</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Content Writing</a> 
-                  </li>                     
-              </ul>                 
-          </div>             
-          <div class="col-sm-4 col-xl-2 py-3"> 
-              <h2 class="fw-bold h5 mb-4 text-uppercase text-white">Other</h2> 
-              <ul class="list-unstyled"> 
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Business Stories</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Learning</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Licence</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Refund Policy</a> 
-                  </li>                     
-                  <li class="mb-3"> <a href="#" class="link-light text-decoration-none">Terms of Service</a> 
-                  </li>                     
-              </ul>                 
-          </div>             
       </div>         
       <div class="pb-3 pt-3 text-center"> 
           <hr class="border-light mt-0"/> 
-          <p class="mb-0">Copyright &copy; 2022 HAN BOOK</p> 
+          <p class="mb-0">Copyright &copy; 2022 HANBOOK</p> 
       </div>         
   </div>     
 </footer>

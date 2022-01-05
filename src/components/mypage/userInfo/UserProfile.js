@@ -24,7 +24,7 @@ const UserProfile = () => {
     });//deps
   }, []);
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <h3> My Profile</h3>
 
       <div class="mt-3  bg-light bg-gradient">
