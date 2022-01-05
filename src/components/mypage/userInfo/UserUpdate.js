@@ -23,7 +23,7 @@ const UserUpdate = () => {
     });
   }, []);//deps
   return (
-    <div class="col-lg-6">
+    <div class="col-9 mx-auto">
       <div className="row">
         <div className="col-lg-4">
           <h4 class="mb-3">회원 정보 수정</h4>

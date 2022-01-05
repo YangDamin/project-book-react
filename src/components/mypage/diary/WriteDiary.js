@@ -27,7 +27,7 @@ const WriteDiary = () => {
     });
   }, []);//deps
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <h3>독서 노트 작성 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
       <form>
         <div class="row">

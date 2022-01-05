@@ -4,7 +4,7 @@ import './SideMenu.css';
 
 const SideMenu = () => {
   return (
-    <div class="col-md-4 m-5 mt-0">
+    <div class="col-2">
       <nav class="navbar navbar-expand-md navbar-light">
         <div class="collapse navbar-collapse" id="sidebar">
           <div class="container-fluid">
@@ -25,13 +25,13 @@ const SideMenu = () => {
                 <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/diary">
                   독서노트
                   <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/list" id='diary'>
-                  독서노트 목록보기
+                    독서노트 목록보기
                   </Link>
                   <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/write" id='diary'>
-                  독서노트 작성하기
+                    독서노트 작성하기
                   </Link>
                 </Link>
-                
+
               </div>
               <div class="col-lg-9">
 

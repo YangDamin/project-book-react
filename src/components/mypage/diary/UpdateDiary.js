@@ -6,7 +6,7 @@ const UpdateDiary = () => {
   console.log("Update Diary ID:", id);
   const [data, setData] = useState({ orderDate: new Date().toISOString().slice(0, 10), book: { name: "책제목", imageurl: "/image/book/default-book.jpg", author: '작가', } });
   return (
-    <div class="col-lg-6" id="contents">
+    <div class="col-9 mx-auto">
       <h3>독서 노트 수정 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
       <form>
         <div class="row">

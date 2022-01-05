@@ -17,15 +17,17 @@ const Mypage = () => {
     }
   })
   return (
-    <div className="row">
-      <SideMenu></SideMenu>
-      <Routes>
-        <Route path="/" element={<UserProfile></UserProfile>}></Route>
-        <Route path="/userProfile" element={<UserProfile></UserProfile>}></Route>
-        <Route path='/userUpdate' element={<UserUpdate></UserUpdate>}></Route>
-        <Route path="/diary/*" element={<Diary></Diary>}></Route>
-      </Routes>
-    </div >
+    <div className="container">
+      <div className="row">
+        <SideMenu></SideMenu>
+        <Routes>
+          <Route path="/" element={<UserProfile></UserProfile>}></Route>
+          <Route path="/userProfile" element={<UserProfile></UserProfile>}></Route>
+          <Route path='/userUpdate' element={<UserUpdate></UserUpdate>}></Route>
+          <Route path="/diary/*" element={<Diary></Diary>}></Route>
+        </Routes>
+      </div >
+    </div>
   );
 };
 
