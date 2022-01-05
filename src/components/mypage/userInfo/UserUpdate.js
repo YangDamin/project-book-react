@@ -26,7 +26,7 @@ const UserUpdate = () => {
     <div class="col-9 mx-auto">
       <div className="row">
         <div className="col-lg-4">
-          <h4 class="mb-3">회원 정보 수정</h4>
+          <h3 class="mb-3" id="profile_title"><b>회원 정보 수정</b></h3>
         </div>
         <div className="col-lg-6"></div>
         <div className="col-lg-2">

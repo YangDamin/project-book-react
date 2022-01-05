@@ -22,20 +22,18 @@ const BookDetailView = () => {
 
     return (
         <section>
-            <div>
+            <div id="bookstyle">
                 <div class="row">
                     <div class="col-md-2 mr-5"></div>
                     <div class="col-md-3 mx-5"><img class="card-img-top mb-5 mt-3" src={book.imageurl} alt="..." /></div>
                     <div class="col-md-5 mx-3">
                         <hr></hr>
-                        {/* <div class="large mt-5 mb-1"><b>{book.author}</b> 지음 | {book.publisher}</div> */}
-                        {/* <div class="medium mb-3">{book.publisher}</div> */}
                         <h3 class="display-5 mt-lg-5 fw-bolder">{book.name}</h3>
-                        <div class="large mb-1"><b>{book.author}</b> 지음 | {book.publisher}</div>
-                        <div class="fs-5 mb-5">
+                        <div class="mb-1"  id="point"><b>{book.author}</b> 지음 | {book.publisher}</div>
+                        <div class="fs-5 mb-5 mt-2">
                             <span><small>판매가 : </small><b><font color="red">{book.price}원</font></b></span>
                         </div>
-                        <p class="text-dark mb-5">[추가적립] 5만원 이상 구매 시 2,000원 추가적립 안내<br></br>
+                        <p class="text-dark mb-5" id="point">[추가적립] 5만원 이상 구매 시 2,000원 추가적립 안내<br></br>
                             [회원혜택] 회원 등급 별, 3만원 이상 구매 시 2~4% 추가적립 안내<br></br>
                             [리뷰적립] 리뷰 작성 시 e교환권 최대 300원 추가적립 안내</p>
                         <div class="d-flex">

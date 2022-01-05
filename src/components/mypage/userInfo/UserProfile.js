@@ -25,40 +25,44 @@ const UserProfile = () => {
   }, []);
   return (
     <div class="col-9 mx-auto">
-      <h3> My Profile</h3>
-
-      <div class="mt-3  bg-light bg-gradient">
+      <h3 id="profile_title"><b>회원 정보</b></h3>
+      <hr></hr>
+      <div class="mt-2" id="profile_content">
         <div>
-          <label>
-            <p class="my-3 p-1 fs-4 "><b class="text-black-60">아이디 :&nbsp;&nbsp;</b><span>{user.email}</span>
+            <p class="my-3 p-1 fs-4">
+              <div>아이디</div><div>{user.email}</div>
             </p>
-          </label>
         </div>
-        <label>
-          <p class="my-3 p-1 fs-4"><b class="text-black-60">생년월일 :&nbsp;&nbsp;</b><span>
-            {user.birth}
-          </span></p>
 
-        </label>
-        <br />
-        <label>
-          <p class="my-3 p-1 fs-4"><b class="text-black-60">이름 :&nbsp;&nbsp;</b><span>{user.name}</span></p>
-        </label>
-        <br />
-        <label>
-          <p class="my-3 p-1 fs-4"><b>휴대전화 번호 :&nbsp;&nbsp;</b><span class="fs-4">{user.phone}</span></p>
-        </label>
-        <br />
-        <label>
-          <p class="my-3 p-1 fs-4"><b>주소 :</b></p>
-          <span class="fs-4">[{user.postcode}]&nbsp;&nbsp;{user.address1} {user.address2}</span>
-        </label>
-        <br />
-        <label>
-          <p class="my-3 p-1 fs-4"><b>가입일 :</b><span class="fs-4">&nbsp;&nbsp;
-            {user.createdDate}
-          </span></p>
-        </label>
+        <div>
+            <p class="my-3 p-1 fs-4">
+              <div>생년월일</div><div>{user.birth}</div>
+            </p>
+        </div>
+
+        <div>
+          <p class="my-3 p-1 fs-4">
+            <div>성명</div><div>{user.name}</div>
+          </p>
+        </div>
+
+        <div>
+          <p class="my-3 p-1 fs-4">
+            <div>휴대폰 번호</div><div>{user.phone}</div>
+          </p>
+        </div>
+
+        <div>
+          <p class="my-3 p-1 fs-4">
+            <div>주소</div><div>[{user.postcode}]&nbsp;&nbsp;{user.address1} {user.address2}</div>
+          </p>
+        </div>
+
+        <div>
+          <p class="my-3 p-1 fs-4">
+            <div>가입일</div><div>{user.createdDate}</div>
+          </p>
+        </div>
       </div>
 
     </div>

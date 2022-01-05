@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&family=Nanum+Gothic:wght@800&display=swap');
 
 #sidebar {
     height: 50vh;
     background-size: cover;
-    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 #diary {
     font-size: medium;
 }
-/* #sidestyle {
-    padding-left: 200px;
-} */
+#profile_title{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#profile_content{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#bookstyle {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#point {
+    font-size: medium;
+}
