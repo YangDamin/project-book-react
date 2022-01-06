@@ -1,17 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link} from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import './Header.css';
 
+
 const Header = () => {
+  const [text, setText] = useState('');
+  const navigate = useNavigate();
+  //const history = useHistory();
+
+  const onChange = (e) =>{
+    setText(e.target.value);
+  }
+
+  const handleClick = ()=>{
+    if(text.length>0){
+      navigate("/book/search/"+text);
+    }
+  }
+
   return (
     <div>
       <nav class="bg-white navbar navbar-expand-lg navbar-light py-lg-1 mt-3">
         <div className="container"><Link class="navbar-brand text-dark" to="/" target="_pg_blank" id="hanbook">HANBOOK</Link>
           <ul class="flex-row ms-auto navbar-nav order-lg-1 ps-2 pe-2">
-            <li class="nav-item"> <a class="nav-link p-2 pb-3 ps-2 pe-2 pt-3 text-dark" href="#" title="Search">
+            <li class="nav-item"> <div class="nav-link p-2 pb-3 ps-2 pe-2 pt-3 text-dark" title="Search">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search" id="search_txt"></input>
-                <button class="btn btn-success" type="submit" id="search_btn">Go</button>
+                <input type="text" class="form-control" placeholder="Search" id="search_txt" onChange={(e)=>onChange(e)}></input>
+                <button class="btn btn-success" id="search_btn" onClick={()=>handleClick()}>Go</button>
               </div>
 
               {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="2em" height="2em">
@@ -20,7 +36,7 @@ const Header = () => {
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
               </g>
             </svg>  검색 */}
-            </a>
+            </div>
             </li>
             {sessionStorage.getItem("userId") ? <li class="nav-item"> <Link class="nav-link pb-3 ps-2 pe-2 pt-3 text-dark" to="/mypage" title="Account"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="2em" height="2em">
               <g>
