@@ -68,7 +68,7 @@ const Signin = () => {
               }}>로그인</Button>
             </div>
             <div className={styles.button_area}>
-              <Button className={styles.button} size="large">회원가입</Button>
+              <Button className={styles.button} size="large"><Link to="/user/signup">회원가입</Link></Button>
             </div>
           </Col>
         </Row>

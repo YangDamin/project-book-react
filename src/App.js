@@ -8,6 +8,7 @@ import Main from './components/main/Main';
 import Book from './components/book/Book';
 import BookDetail from './components/book/BookDetail';
 import Signout from './components/user/Signout';
+import Signup from './components/user/Signup';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="*"></Route>
           </Route>
           <Route path="/user/signin" element={<Signin></Signin>}></Route>
+          <Route path="/user/signup" element={<Signup></Signup>}></Route>
           <Route path="/user/signout" element={<Signout></Signout>}></Route>
           <Route path="/book" element={<Book></Book>}></Route>
           <Route path="/book/detail" element={<BookDetail />}></Route>
