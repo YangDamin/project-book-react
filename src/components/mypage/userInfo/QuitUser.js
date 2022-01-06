@@ -1,6 +1,9 @@
 import React from 'react';
 
 const QuitUser = () => {
+  if (sessionStorage.getItem("quitCheck") != "ok") {
+    window.location.href = "/mypage/quitUserCheck";
+  }
   const userId = sessionStorage.getItem("id");
   const email = sessionStorage.getItem("email");
   return (
@@ -16,7 +19,21 @@ const QuitUser = () => {
       <p class="fs-4 text-center">더 나은 서비스를 만드는 HanBook이 되겠습니다. </p>
       <p class="fs-5 text-center">다음에도 많은 관심과 이용 부탁드립니다.</p>
       <div class="mx-auto">
-        <button type="button" class="btn btn-danger p-2 fs-5">회원탈퇴</button>
+        <button type="button" class="btn btn-danger p-2 fs-5"
+          onClick={() => {
+            const check = window.confirm("회원 탈퇴를 하시겠습니까?\n 삭제하면 모든 정보는 다시 찾을 수 없습니다.");
+            if (check) {
+              alert("회원탈퇴 진행하기");
+              window.location.href = "/";
+              sessionStorage.removeItem("quitCheck");
+              sessionStorage.removeItem("userId");
+              sessionStorage.removeItem("email");
+              sessionStorage.removeItem("password");
+
+            } else {
+              alert("원상태 그대로 고민하기");
+            }
+          }}>회원탈퇴</button>
       </div>
     </div>
   );

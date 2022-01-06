@@ -55,6 +55,7 @@ const QuitUserCheck = () => {
                     console.log(result);
                     if (result.code == 200) {
                       //로그인 성공하였을 때, QuitUser 컴포넌트 보여주기
+                      sessionStorage.setItem("quitCheck", "ok");
                       navigate("/mypage/quitUser");
                     } else if (result.code == 400) {
                       alert(result.msg);

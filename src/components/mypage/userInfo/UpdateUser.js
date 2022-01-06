@@ -71,7 +71,7 @@ const UpdateUser = () => {
           <div className="mb-3">
             <label for="name">이름</label>
             <input type="text" class="form-control" id="name" placeholder="" value={user.name} required
-              onChange={(e) => { document.getElementById("name").value = e.target.value }} />
+              onChange={(e) => { setUser({ ...user, name: e.target.value }); }} />
             <div class="invalid-feedback"> Valid first name is required. </div>
           </div>
         </div>
@@ -83,12 +83,12 @@ const UpdateUser = () => {
         </div>
         <div class="mb-1">
           <label for="password">Password <span class="text-muted"></span></label>
-          <input type="password" class="form-control" id="password" required onChange={(e) => { document.getElementById("password").value = e.target.value }} />
+          <input type="password" class="form-control" id="password" required onChange={(e) => { setUser({ ...user, password: e.target.value }); }} />
           <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
         </div>
         <div class="mb-3">
           <label for="password_check">Password <span class="text-muted">(Check)</span></label>
-          <input type="password" class="form-control" id="password_check" required onChange={(e) => { document.getElementById("password_check").value = e.target.value }} />
+          <input type="password" class="form-control" id="password_check" />
           <div class="invalid-feedback"> Please enter a valid password. </div>
         </div>
 
@@ -101,23 +101,23 @@ const UpdateUser = () => {
           <label for="phone">Phone <span class="text-muted"></span></label>
           <input type="tel" class="form-control" id="phone" value={user.phone} required
             onChange={(e) => {
-              setUser({ phone: e.target.value });
+              setUser({ ...user, phone: e.target.value });
             }} />
           <div class="invalid-feedback"> Please enter a valid phone number for shipping updates. </div>
         </div>
 
         <div class="mb-1">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address1" value={user.address1} required onChange={(e) => { document.getElementById("address").value = e.target.value }} />
+          <input type="text" class="form-control" id="address1" value={user.address1} required onChange={(e) => { setUser({ ...user, address1: e.target.value }); }} />
           <div class="invalid-feedback"> Please enter your shipping address. </div>
         </div>
         <div class="mb-1">
           <label for="address2">Address 2 <span class="text-muted">(상세주소)</span></label>
-          <input type="text" class="form-control" id="address2" value={user.address2} required onChange={(e) => { document.getElementById("address2").value = e.target.value }} />
+          <input type="text" class="form-control" id="address2" value={user.address2} required onChange={(e) => { setUser({ ...user, address2: e.target.value }); }} />
         </div>
         <div class="col-md-3 mb-5">
           <label for="post_code">Post Code</label>
-          <input type="text" class="form-control" id="postcode" value={user.postcode} required onChange={(e) => { document.getElementById("postcode").value = e.target.value }} required />
+          <input type="text" class="form-control" id="postcode" value={user.postcode} required onChange={(e) => { setUser({ ...user, postcode: e.target.value }); }} />
           <div class="invalid-feedback"> Post Code required. </div>
         </div>
       </form>
