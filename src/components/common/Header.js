@@ -26,7 +26,7 @@ const Header = () => {
           <ul class="flex-row ms-auto navbar-nav order-lg-1 ps-2 pe-2">
             <li class="nav-item"> <div class="nav-link p-2 pb-3 ps-2 pe-2 pt-3 text-dark" title="Search">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search" id="search_txt" onChange={(e)=>onChange(e)}></input>
+                <input type="text" class="form-control" placeholder="검색" id="search_txt" onChange={(e)=>onChange(e)}></input>
                 <button class="btn btn-success" id="search_btn" onClick={()=>handleClick()}>Go</button>
               </div>
 
