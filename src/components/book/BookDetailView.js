@@ -69,7 +69,7 @@ const BookDetailView = () => {
                                     e.preventDefault();
 
                                     const formData = new FormData();
-                                    const userid = sessionStorage.getItem("userId");
+                                    const userid = sessionStorage.getItem("email");
                                     const userpw = sessionStorage.getItem("password");
                                     formData.append("userId", userid);
                                     formData.append("userPassword", userpw);
@@ -90,7 +90,7 @@ const BookDetailView = () => {
                                     }
                                 }}>
                                 <i class="bi-cart-fill me-1"></i>
-                                구매하기
+                                주문하기
                             </button>
                     </div>
                 </div>

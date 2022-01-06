@@ -43,11 +43,11 @@ const DiaryDetail = () => {
                   <tr>
                     {/* book id를 바탕으로 find이용해서 orderdate찾기  */}
                     <th scope="row">최초작성일</th>
-                    <td><h5>{data ? data.orderDate : ""}</h5></td>
+                    <td><h5>{data ? data.writtenDate : ""}</h5></td>
                   </tr>
                   <tr>
                     <th scope="row">최종작성일</th>
-                    <td><h5>{data ? data.lastUpdateDate : ""}</h5></td>
+                    <td><h5>{data ? data.lastUpdatedDate : ""}</h5></td>
                   </tr>
                 </tbody>
               </table>

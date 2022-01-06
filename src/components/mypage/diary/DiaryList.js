@@ -24,15 +24,16 @@ const DiaryList = () => {
       // console.log(res.data);
       const responseData = res.data;
       setDiaryList(responseData);
+
     });
-  }, [diaryList]);//deps
+  }, []);//deps
 
   return (
     <div class="col-9 mx-auto">
       <div class="row">
 
         <div class="col-lg-3 ml-0">
-          <h2>독서노트 목록</h2>
+          <h5 id="profile_title"><b>독서노트 목록</b></h5>
         </div>
         <div class="col-lg-3">
           <div class="input-group">
@@ -57,7 +58,7 @@ const DiaryList = () => {
 
       <table class="table table-hover">
         <thead>
-          <tr>
+          <tr class = "large">
             <th scope="col">#</th>
             <th scope="col">책 이름</th>
             <th scope="col">한 줄 평</th>
@@ -85,14 +86,18 @@ const DiaryList = () => {
                   <button class="btn btn-dark" data-id={diary.id}
                     onClick={(e) => {
                       const id = e.target.dataset.id;
-                      const url = `http://localhost:8080/mypage/diary/${id}`;
+                      const url = `http://localhost:8080/mypage/diary/delete`;
+                      const userId = sessionStorage.getItem("userId");
                       axios({
                         url: url,
-                        method: 'DELETE',
+                        method: 'get',
+                        params: { id, userId }
                       }).then((res) => {
                         const result = res.data;
+                        // setDiaryList(result.diaryList);
                         alert(result.msg);
-                        // navigate("/mypage/diary");
+
+                        window.location.href = "/mypage/diary";
                       })
                     }}>삭제</button></td>
               </tr>

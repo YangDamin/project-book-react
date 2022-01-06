@@ -7,6 +7,7 @@ import UpdateUser from './userInfo/UpdateUser';
 
 import QuitUserCheck from './userInfo/QuitUserCheck';
 import QuitUser from './userInfo/QuitUser';
+import OrderList from './itemInfo/OrderList';
 
 
 const Mypage = () => {
@@ -29,6 +30,7 @@ const Mypage = () => {
           <Route path='/quitUserCheck' element={<QuitUserCheck></QuitUserCheck>}></Route>
           <Route path='/quitUser' element={<QuitUser></QuitUser>}></Route>
           <Route path="/diary/*" element={<Diary></Diary>}></Route>
+          <Route path="/order/list" element={<OrderList></OrderList>}/>
         </Routes>
       </div >
     </div>

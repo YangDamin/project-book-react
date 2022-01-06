@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 
 const WriteDiary = () => {
+  const navigate = useNavigate();
   const [dataList, setDataList] = useState([]);
   const [data, setData] = useState({ orderDate: new Date().toISOString().slice(0, 10), book: { imageurl: "/image/book/default-book.jpg", author: '작가', } });
+  console.log("dataList", dataList);
+  console.log("책정보", data);
   useEffect(() => {
     const id = sessionStorage.getItem("userId");
     const email = sessionStorage.getItem("email");
@@ -28,12 +32,12 @@ const WriteDiary = () => {
   }, []);//deps
   return (
     <div class="col-9 mx-auto">
-      <h3>독서 노트 작성 &nbsp;<i class="fas fa-pencil-alt"></i></h3>
+      <h5 id="profile_title"><b>독서 노트 작성 &nbsp;<i class="fas fa-pencil-alt"></i></b></h5>
       <form>
         <div class="row">
           <div class="col-lg-5">
             <img src={data.book.imageurl} onerror="this.src='/image/book/default-book.jpg'" class="rounded float-start" style={{ opacity: 0.7, width: "80%", height: "200px" }} alt="책" />
-            <div class="border border-light text-center" style={{ width: "80%" }}>
+            <div class="border border-light text-center" id="profile_title" style={{ width: "80%" }}>
               <table class="table">
                 <tbody>
                   <tr>
@@ -70,19 +74,52 @@ const WriteDiary = () => {
                   </tr>
                 </tbody>
               </table>
-              <h5><label for="thought">느낀점&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></label></h5>
+              <h5 id="profile_title"><label for="thought">느낀점&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></label></h5>
               <textarea name="thought" id="thought" style={{ width: "100%" }} rows="5" class="bg-danger bg-opacity-10">
 
               </textarea>
             </div>
           </div>
           <div class="col-lg-7">
-            <h4 class="text-center"><label for="content">감상문&nbsp;&nbsp;<i class="far fa-keyboard"></i></label></h4>
+            <h4 class="text-center" id="profile_title"><label for="content">감상문&nbsp;&nbsp;<i class="far fa-keyboard"></i></label></h4>
             <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="한 줄 평"></input>
             <textarea name="content" id="content" class="form-control" rows="17" placeholder="줄거리 입력">
             </textarea>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-              <button type="button" class="btn btn-dark ">작성하기</button>
+              <button type="button" class="btn btn-dark"
+                onClick={() => {
+                  const id = sessionStorage.getItem("userId");
+                  const email = sessionStorage.getItem("email");
+                  const password = sessionStorage.getItem("password");
+                  const formData = new FormData();
+                  formData.append("userId", id);
+                  formData.append("bookId", data.book.id)
+                  console.log("Book ID", data.id);
+                  const title = document.getElementById("title").value;
+                  const content = document.getElementById("content").value;
+                  const thought = document.getElementById("thought").value;
+                  formData.append("title", title);
+                  formData.append("content", content);
+                  formData.append("thought", thought);
+                  const result = axios({
+                    url: 'http://localhost:8080/mypage/diary/write',
+                    method: 'post',
+                    data: formData
+                  });
+                  result.then((res) => {
+                    console.log(res);
+                    console.log("WriteDiary 작성 후 비동기통신 결과:")
+                    console.log(res.data);
+                    window.location.href = "/mypage/diary";
+                    const result = res.data;
+                    if (result.code == 200) {
+                      navigate("/mypage");
+                    } else if (result.code == 400) {
+                      alert(result.msg);
+                      window.location.href = "/mypage/diary/write";
+                    }
+                  });
+                }}>작성하기</button>
             </div>
           </div>
         </div>
