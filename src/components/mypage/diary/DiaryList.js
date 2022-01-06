@@ -25,7 +25,7 @@ const DiaryList = () => {
       const responseData = res.data;
       setDiaryList(responseData);
     });
-  }, [diaryList]);//deps
+  }, []);//deps
 
   return (
     <div class="col-9 mx-auto">
@@ -92,7 +92,7 @@ const DiaryList = () => {
                       }).then((res) => {
                         const result = res.data;
                         alert(result.msg);
-                        // navigate("/mypage/diary");
+                        window.location.href = "/mypage/diary";
                       })
                     }}>삭제</button></td>
               </tr>

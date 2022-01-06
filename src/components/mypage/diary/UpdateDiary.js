@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 const UpdateDiary = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   console.log("Update Diary ID:", id);
   const [data, setData] = useState({ book: { name: "책제목", imageurl: "/image/book/default-book.jpg", author: '작가', } });
@@ -47,7 +48,7 @@ const UpdateDiary = () => {
                   </tr>
                   <tr>
                     <th scope="row">최종작성일</th>
-                    <td><h5>{data.lastUpdateDate}</h5></td>
+                    <td><h5>{data.lastUpdatedDate}</h5></td>
                   </tr>
                 </tbody>
               </table>
@@ -62,17 +63,44 @@ const UpdateDiary = () => {
           </div>
           <div class="col-lg-7">
             <h4 class="text-center"><label for="content">감상문&nbsp;&nbsp;<i class="far fa-keyboard"></i></label></h4>
-            <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="제목 입력"
+            <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="한 줄 평"
               onChange={(e) => {
                 setData({ ...data, title: e.target.value })
               }}></input>
-            <textarea name="content" id="content" class="form-control bg-warning bg-opacity-10" rows="17" placeholder="내용 입력" value={data.content}
+            <textarea name="content" id="content" class="form-control bg-warning bg-opacity-10" rows="17" placeholder="줄거리 입력" value={data.content}
               onChange={(e) => {
                 setData({ ...data, content: e.target.value })
               }}>
             </textarea>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-              <button type="button" class="btn btn-dark ">작성하기</button>
+              <button type="button" class="btn btn-dark" onClick={() => {
+                const formData = new FormData();
+                const title = document.getElementById("title").value;
+                const content = document.getElementById("content").value;
+                const thought = document.getElementById("thought").value;
+                formData.append("id", id);
+                formData.append("title", title);
+                formData.append("content", content);
+                formData.append("thought", thought);
+                const result = axios({
+                  url: 'http://localhost:8080/mypage/diary/update',
+                  method: 'post',
+                  data: formData
+                });
+                result.then((res) => {
+                  console.log(res);
+                  console.log("WriteDiary 작성 후 비동기통신 결과:")
+                  console.log(res.data);
+                  window.location.href = "/mypage/diary";
+                  const result = res.data;
+                  if (result.code == 200) {
+                    navigate("/mypage");
+                  } else if (result.code == 400) {
+                    alert(result.msg);
+                    window.location.href = `/mypage/diary/update/${id}`;
+                  }
+                });
+              }}>수정하기</button>
             </div>
           </div>
         </div>
