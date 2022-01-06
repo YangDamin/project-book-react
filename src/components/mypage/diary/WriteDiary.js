@@ -86,6 +86,40 @@ const WriteDiary = () => {
             <textarea name="content" id="content" class="form-control" rows="17" placeholder="줄거리 입력">
             </textarea>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+              <button type="button" class="btn btn-dark"
+                onClick={() => {
+                  const id = sessionStorage.getItem("userId");
+                  const email = sessionStorage.getItem("email");
+                  const password = sessionStorage.getItem("password");
+                  const formData = new FormData();
+                  formData.append("userId", id);
+                  formData.append("bookId", data.book.id)
+                  console.log("Book ID", data.id);
+                  const title = document.getElementById("title").value;
+                  const content = document.getElementById("content").value;
+                  const thought = document.getElementById("thought").value;
+                  formData.append("title", title);
+                  formData.append("content", content);
+                  formData.append("thought", thought);
+                  const result = axios({
+                    url: 'http://localhost:8080/mypage/diary/write',
+                    method: 'post',
+                    data: formData
+                  });
+                  result.then((res) => {
+                    console.log(res);
+                    console.log("WriteDiary 작성 후 비동기통신 결과:")
+                    console.log(res.data);
+                    window.location.href = "/mypage/diary";
+                    const result = res.data;
+                    if (result.code == 200) {
+                      navigate("/mypage");
+                    } else if (result.code == 400) {
+                      alert(result.msg);
+                      window.location.href = "/mypage/diary/write";
+                    }
+                  });
+                }}>작성하기</button>
             </div>
           </div>
         </div>
