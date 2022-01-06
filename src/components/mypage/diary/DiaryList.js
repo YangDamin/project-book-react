@@ -29,7 +29,7 @@ const DiaryList = () => {
 
   return (
     <div class="col-9 mx-auto">
-      <div class="row">
+      <div class="row mb-3">
 
         <div class="col-lg-3 ml-0">
           <h5 id="profile_title"><b>독서노트 목록</b></h5>
@@ -51,7 +51,7 @@ const DiaryList = () => {
         </div>
       </div>
 
-      <table class="table table-hover">
+      <table class="table table-hover mb-4">
         <thead>
           <tr class="large">
             <th scope="col">#</th>
@@ -68,17 +68,17 @@ const DiaryList = () => {
               <tr key={diary.id}>
 
                 <th scope="row">{num}</th>
-                <td>  <Link to={`/mypage/diary/detail/${diary.id}`}>{diary.book.name}</Link></td>
+                <td>  <Link to={`/mypage/diary/detail/${diary.id}`} style={{color:'black'}}>{diary.book.name}</Link></td>
                 <td>{diary.title}</td>
 
                 <td>{new Date(diary.lastUpdatedDate).toISOString().slice(0, 10)}</td>
-                <td>
-                  <button class="btn btn-dark mr-2" data-id={diary.id} onClick={(e) => {
+                <td style={{ textAlign: "right"}}>
+                  <button class="btn mr-2 btn-sm btn-light" style={{borderRadius: "12px"}} data-id={diary.id} onClick={(e) => {
                     const id = e.target.dataset.id;
                     console.log(e.target.dataset.id);
                     navigate(`/mypage/diary/update/${id}`)
                   }}>수정</button>&nbsp;
-                  <button class="btn btn-dark" data-id={diary.id}
+                  <button class="btn btn-light btn-sm" data-id={diary.id} style={{borderRadius: "12px"}}
                     onClick={(e) => {
                       const id = e.target.dataset.id;
                       const url = `http://localhost:8080/mypage/diary/delete`;
