@@ -33,7 +33,7 @@ const DiaryList = () => {
       <div class="row">
 
         <div class="col-lg-3 ml-0">
-          <h2>독서노트 목록</h2>
+          <h5 id="profile_title"><b>독서노트 목록</b></h5>
         </div>
         <div class="col-lg-3">
           <div class="input-group">
@@ -58,7 +58,7 @@ const DiaryList = () => {
 
       <table class="table table-hover">
         <thead>
-          <tr>
+          <tr class = "large">
             <th scope="col">#</th>
             <th scope="col">책 이름</th>
             <th scope="col">한 줄 평</th>
