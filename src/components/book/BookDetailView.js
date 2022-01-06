@@ -33,7 +33,7 @@ const BookDetailView = () => {
                         <h3 class="mt-lg-5 fw-bolder" style={{'fontSize': '30px'}}>{book.name}</h3>
                         <div class="mb-1"  id="point"><b>{book.author}</b> 지음 | {book.publisher}</div>
                         <div class="fs-5 mb-5 mt-2">
-                            <span><small>판매가 : </small><b><font color="red">{book.price.toLocaleString()}원</font></b></span>
+                            <span><small>판매가 : </small><b><font color="red">{book.price}원</font></b></span>
                         </div>
                         <p class="text-dark mb-5" id="point">[추가적립] 5만원 이상 구매 시 2,000원 추가적립 안내<br></br>
                             [회원혜택] 회원 등급 별, 3만원 이상 구매 시 2~4% 추가적립 안내<br></br>
