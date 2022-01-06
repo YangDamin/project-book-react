@@ -30,7 +30,7 @@ const BookDetailView = () => {
                     <div class="col-md-3 mx-5"><img class="card-img-top mb-5 mt-3" src={book.imageurl} alt="..." /></div>
                     <div class="col-md-5 mx-3">
                         <hr></hr>
-                        <h3 class="display-5 mt-lg-5 fw-bolder">{book.name}</h3>
+                        <h3 class="mt-lg-5 fw-bolder" style={{'fontSize': '30px'}}>{book.name}</h3>
                         <div class="mb-1"  id="point"><b>{book.author}</b> 지음 | {book.publisher}</div>
                         <div class="fs-5 mb-5 mt-2">
                             <span><small>판매가 : </small><b><font color="red">{book.price}원</font></b></span>
