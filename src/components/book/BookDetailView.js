@@ -1,7 +1,9 @@
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 import { List } from 'antd/lib/form/Form';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import './BookDetailView.css';
 
 const BookDetailView = () => {
@@ -36,21 +38,60 @@ const BookDetailView = () => {
                         <p class="text-dark mb-5" id="point">[추가적립] 5만원 이상 구매 시 2,000원 추가적립 안내<br></br>
                             [회원혜택] 회원 등급 별, 3만원 이상 구매 시 2~4% 추가적립 안내<br></br>
                             [리뷰적립] 리뷰 작성 시 e교환권 최대 300원 추가적립 안내</p>
+                    
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1"
-                                onChange={(e) => {
-                                    console.log(e);
-                                    document.getElementById("inputQuantity").value = e.target.value;
-                                }} />
-                            <button class="btn btn-outline-dark flex-shrink-0 me-2" type="button">
+                            <button type='button' id="btn_minus" class="btn btn-outline-dark" datatype='minus' onClick={ (e) => {
+                                e.preventDefault();
+                                if(document.getElementById("inputQuantity").value == 1){
+                                    document.getElementById("inputQuantity").value=1;
+                                } else{
+                                document.getElementById("inputQuantity").value--;
+                                }
+                            }}> <span>-</span></button>
+                            <input class="form-control text-center border-dark" id="inputQuantity" type="num" value="1"/>
+                            <button type='button' class="btn btn-outline-dark" datatype='plus' onClick={ (e) => {
+                                e.preventDefault();
+                                if(document.getElementById("inputQuantity").value == 100){
+                                    document.getElementById("inputQuantity").value=100;
+                                } else{
+                                    document.getElementById("inputQuantity").value++;
+                                }
+                            }}><span>+</span></button>
+                           
+                        </div>
+                        <br></br>
+                        <button class="btn btn-outline-dark flex-shrink-0 me-2" type="button">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button"
+                                onClick={(e)=>{
+                                    e.preventDefault();
+
+                                    const formData = new FormData();
+                                    const userid = sessionStorage.getItem("userId");
+                                    const userpw = sessionStorage.getItem("password");
+                                    formData.append("userId", userid);
+                                    formData.append("userPassword", userpw);
+                                    formData.append("bookId", bookid);
+                                    formData.append("count",document.getElementById("inputQuantity").value);
+
+                                    const result = axios({
+                                        url : 'http://localhost:8080/order/view',
+                                        method: 'post',
+                                        data : formData
+                                    });
+                                    
+
+                                    if(sessionStorage.getItem("userId")){
+                                        alert("주문 완료");
+                                    }else {
+                                        window.location.href="/user/signin"
+                                    }
+                                }}>
                                 <i class="bi-cart-fill me-1"></i>
                                 구매하기
                             </button>
-                        </div>
                     </div>
                 </div>
 
