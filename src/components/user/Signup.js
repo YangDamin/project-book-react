@@ -11,12 +11,13 @@ const Signup = () => {
   const [address, setAddress] = useState(''); // 주소
   const [addressDetail, setAddressDetail] = useState(''); // 상세주소
 
-  
   const [isOpenPost, setIsOpenPost] = useState(false);
 
   const onCompletePost = (data) => {
     let fullAddr = data.address;
     let extraAddr = '';
+    let fullAddress = data.address;
+    let extraAddress = "";
 
     if (data.addressType === 'R') {
       if (data.bname !== '') {
@@ -88,29 +89,19 @@ const Signup = () => {
             <div className={styles.input_area}>
               <Input className={styles.input} placeholder="phone" type="phone" autoComplete="current" name="phone" id="phone"></Input>
             </div>
+              <div className={styles.password_title}>
+                Postcode
+              <span className={styles.required}>*</span>
+              </div>
+              <div className={styles.input_area}>
+              <Input className={styles.input} placeholder="우편번호(주소검색버튼)" readonly value={address} type="postcode"  autoComplete="current" name="postcode" id="sample4_postcode" ></Input>
+              </div>          
             <div className={styles.password_title}>
               Address
               <span className={styles.required}>*</span>
             </div>
             <div className={styles.input_area}>
-              <Input className={styles.input} placeholder="주소" readonly value={addressDetail} type="address1" autoComplete="current" name="address1" id="sample5_address1" ></Input>
-            </div>
-            <div className={styles.password_title}>
-              Postcode
-            <span className={styles.required}>*</span>
-            </div>
-            <div className={styles.input_area}>
-            <Input type="text" id="sample4_postcode" name="postcode" placeholder="우편번호"></Input>
-            <Button className={styles.button} size='large' onClick={(e) => {
-                setIsOpenPost(true);
-              }}>우편번호</Button>
-            </div>
-            <div className={styles.password_title}>
-              Address2
-              <span className={styles.required}>*</span>
-            </div>
-            <div className={styles.input_area}>
-              <Input className={styles.input} placeholder="상세주소" type="address2" autoComplete="current" name="address2" id="sample5_address2" ></Input>
+              <Input className={styles.input} placeholder="주소(주소검색버튼)" readonly value={addressDetail} type="address1" autoComplete="current" name="address1" id="sample5_address1" ></Input>
             </div>
             <div className={styles.button_area}>
               <Button className={styles.button} size='large' onClick={(e) => {
@@ -120,6 +111,13 @@ const Signup = () => {
             {isOpenPost  ? (
               <DaumPostcode style={postCodeStyle} autoClose onComplete={onCompletePost } />
             ) : null}
+            <div className={styles.password_title}>
+              Address2
+              <span className={styles.required}>*</span>
+            </div>
+            <div className={styles.input_area}>
+              <Input className={styles.input} placeholder="상세주소" type="address2" autoComplete="current" name="address2" id="sample5_address2" ></Input>
+            </div>
             <div className={styles.button_area}>
               <Button className={styles.button} size="large" onClick={(e) => {
 
@@ -130,20 +128,20 @@ const Signup = () => {
                 formData.append('birth', document.querySelector('[name=birth]').value);
                 formData.append('name', document.querySelector('[name=name]').value);
                 formData.append('phone', document.querySelector('[name=phone]').value);
-                formData.append('address1', document.querySelector('[name=address1]').value);
                 formData.append('postcode', document.querySelector('[name=postcode]').value);
+                formData.append('address1', document.querySelector('[name=address1]').value);
                 formData.append('address2', document.querySelector('[name=address2]').value);
                 axios({
-                    url:'http://localhost:8080/user/api/signup',
+                    url:'http://localhost:8080/user/signup',
                     method: 'post',
                     data: formData
                 }).then((res) => {
                     console.log(res.data);
 
                     if(res.data.code != 200) {
-                        alert('회원가입 승인불가');
+                        // alert('🤦‍♂️회원가입 승인불가🤦‍♂️');
                     } else {
-                        alert('회원가입 완료');
+                        // alert('👊회원가입 완료👊');
                     }
                 });
               }}><Link to="/">회원가입</Link></Button>
