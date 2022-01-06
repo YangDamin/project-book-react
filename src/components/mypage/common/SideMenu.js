@@ -10,22 +10,22 @@ const SideMenu = () => {
           <div class="container-fluid">
             <div class="row">
               <div class="sidebar">
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userProfile">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-2 mb-2 fs-6" to="/mypage/userProfile">
                   회원정보조회
                 </Link>
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userUpdate">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-2 mb-2 fs-6" to="/mypage/userUpdate">
                   회원정보수정
                 </Link>
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/quitUserCheck">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-2 mb-2 fs-6" to="/mypage/quitUserCheck">
                   회원탈퇴
                 </Link>
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/order/list">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-2 mb-2 fs-6" to="/mypage/order/list">
                   주문내역
                 </Link>
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/diary">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-2 mb-2 fs-6" to="/mypage/diary">
                   독서노트
 
-                  <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/write" id='diary'>
+                  <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 fs-6" to="/mypage/diary/write" id='diary'>
                     독서노트 작성하기
                   </Link>
                 </Link>

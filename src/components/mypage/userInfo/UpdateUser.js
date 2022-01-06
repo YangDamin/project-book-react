@@ -23,14 +23,14 @@ const UpdateUser = () => {
     });
   }, []);//deps
   return (
-    <div class="col-9 mx-auto">
+    <div class="col-7 mx-5">
       <div className="row">
         <div className="col-lg-4">
-          <h3 class="mb-3" id="profile_title"><b>회원 정보 수정</b></h3>
+          <h5 class="mb-3" id="profile_title"><b>회원 정보 수정</b></h5>
         </div>
         <div className="col-lg-6"></div>
         <div className="col-lg-2">
-          <button type="submit" className="btn-lg btn-outline-secondary"
+          <button type="submit" className="btn btn-dark"
             onClick={(e) => {
               e.preventDefault();
               const formData = new FormData();
