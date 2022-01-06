@@ -106,7 +106,7 @@ const UpdateDiary = () => {
                       window.location.href = `/mypage/diary/update/${id}`;
                     }
                   });
-              }}>수정하기</button>
+              }}>수정완료</button>
             </div>
           </div>
         </div>
