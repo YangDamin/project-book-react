@@ -78,8 +78,8 @@ const WriteDiary = () => {
           </div>
           <div class="col-lg-7">
             <h4 class="text-center"><label for="content">감상문&nbsp;&nbsp;<i class="far fa-keyboard"></i></label></h4>
-            <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="제목 입력"></input>
-            <textarea name="content" id="content" class="form-control bg-warning bg-opacity-10" rows="17" placeholder="내용 입력">
+            <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="한 줄 평"></input>
+            <textarea name="content" id="content" class="form-control" rows="17" placeholder="줄거리 입력">
             </textarea>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
               <button type="button" class="btn btn-dark ">작성하기</button>
