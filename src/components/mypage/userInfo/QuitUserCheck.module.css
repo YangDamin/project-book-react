@@ -11,6 +11,7 @@
   color: #642828;
   text-transform: uppercase;
   margin-top: 80px;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .signin_subtitle {
@@ -18,6 +19,7 @@
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .signin_underline {
@@ -92,6 +94,7 @@
   border-width: 2px;
   color: white;
   width: 100%;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .button:hover {
