@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div>
       <nav class="bg-white navbar navbar-expand-lg navbar-light py-lg-1 mt-3">
-        <div className="container"><Link class="navbar-brand text-dark" to="/" target="_pg_blank" id="hanbook">HANBOOK</Link>
+        <div className="container"><Link class="navbar-brand text-dark" to="/" id="hanbook">HANBOOK</Link>
           <ul class="flex-row ms-auto navbar-nav order-lg-1 ps-2 pe-2">
             <li class="nav-item"> <a class="nav-link p-2 pb-3 ps-2 pe-2 pt-3 text-dark" href="#" title="Search">
               <div class="input-group mb-3">
