@@ -16,7 +16,7 @@ const SideMenu = () => {
                 <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userUpdate">
                   회원정보수정
                 </Link>
-                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/userQuit">
+                <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/quitUserCheck">
                   회원탈퇴
                 </Link>
                 <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/order/list">
@@ -24,9 +24,7 @@ const SideMenu = () => {
                 </Link>
                 <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3 mb-2" to="/mypage/diary">
                   독서노트
-                  <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/list" id='diary'>
-                    독서노트 목록보기
-                  </Link>
+
                   <Link class="nav-link navbar-brand text-dark text-center d-block mx-auto py-3" to="/mypage/diary/write" id='diary'>
                     독서노트 작성하기
                   </Link>
