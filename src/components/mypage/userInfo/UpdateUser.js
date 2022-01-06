@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 
-const UserUpdate = () => {
+const UpdateUser = () => {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
@@ -125,4 +125,4 @@ const UserUpdate = () => {
   );
 };
 
-export default UserUpdate;
+export default UpdateUser;

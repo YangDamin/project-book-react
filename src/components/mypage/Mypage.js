@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import SideMenu from './common/SideMenu';
 import Diary from './diary/Diary';
-import UserCheckout from './UserCheckout';
 import UserProfile from './userInfo/UserProfile';
-import UserUpdate from './userInfo/UserUpdate';
+import UpdateUser from './userInfo/UpdateUser';
+
+import QuitUserCheck from './userInfo/QuitUserCheck';
+import QuitUser from './userInfo/QuitUser';
 
 
 const Mypage = () => {
@@ -23,7 +25,9 @@ const Mypage = () => {
         <Routes>
           <Route path="/" element={<UserProfile></UserProfile>}></Route>
           <Route path="/userProfile" element={<UserProfile></UserProfile>}></Route>
-          <Route path='/userUpdate' element={<UserUpdate></UserUpdate>}></Route>
+          <Route path='/userUpdate' element={<UpdateUser></UpdateUser>}></Route>
+          <Route path='/quitUserCheck' element={<QuitUserCheck></QuitUserCheck>}></Route>
+          <Route path='/quitUser' element={<QuitUser></QuitUser>}></Route>
           <Route path="/diary/*" element={<Diary></Diary>}></Route>
         </Routes>
       </div >
