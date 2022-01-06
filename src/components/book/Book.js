@@ -8,7 +8,7 @@ const Book = () => {
   console.log(category);
 
   const [bookList, setBookList] = useState([]);
-
+  // const [type, setType] = useState(category);
   useEffect(() => {
     const result = axios({
       url: `http://localhost:8080/book/category/${category}`,
@@ -19,8 +19,7 @@ const Book = () => {
       console.log(res.data);
       setBookList(res.data);
     });
-
-  });//deps
+  }, [category]);//deps
 
   return (
     // <div>

@@ -24,6 +24,7 @@ const DiaryList = () => {
       // console.log(res.data);
       const responseData = res.data;
       setDiaryList(responseData);
+
     });
   }, []);//deps
 
@@ -85,13 +86,17 @@ const DiaryList = () => {
                   <button class="btn btn-dark" data-id={diary.id}
                     onClick={(e) => {
                       const id = e.target.dataset.id;
-                      const url = `http://localhost:8080/mypage/diary/${id}`;
+                      const url = `http://localhost:8080/mypage/diary/delete`;
+                      const userId = sessionStorage.getItem("userId");
                       axios({
                         url: url,
-                        method: 'DELETE',
+                        method: 'get',
+                        params: { id, userId }
                       }).then((res) => {
                         const result = res.data;
+                        // setDiaryList(result.diaryList);
                         alert(result.msg);
+
                         window.location.href = "/mypage/diary";
                       })
                     }}>삭제</button></td>

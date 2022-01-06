@@ -29,15 +29,15 @@ const UserProfile = () => {
       <hr></hr>
       <div class="mt-2" id="profile_content">
         <div>
-            <p class="my-3 p-1 fs-4">
-              <div>아이디</div><div>{user.email}</div>
-            </p>
+          <p class="my-3 p-1 fs-4">
+            <div>아이디</div><div>{user.email}</div>
+          </p>
         </div>
 
         <div>
-            <p class="my-3 p-1 fs-4">
-              <div>생년월일</div><div>{user.birth}</div>
-            </p>
+          <p class="my-3 p-1 fs-4">
+            <div>생년월일</div><div>{user.birth}</div>
+          </p>
         </div>
 
         <div>
