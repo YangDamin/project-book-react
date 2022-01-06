@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Pagination from './Pagination';
 
 const DiaryList = () => {
   const navigate = useNavigate();
-  let num = 0;
+
   const [diaryList, setDiaryList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
+  let num = ((currentPage - 1) * pageSize);
   // console.log(diaryList);
   useEffect(() => {
     const id = sessionStorage.getItem("userId");
@@ -13,19 +17,42 @@ const DiaryList = () => {
     const password = sessionStorage.getItem("password");
     const formData = new FormData();
     formData.append("userId", id);
+    formData.append("page", currentPage);
+    formData.append("pageSize", pageSize);
     const result = axios({
-      url: 'http://localhost:8080/mypage/diary/list',
+      url: 'http://localhost:8080/mypage/diary/list/sort',
       method: 'post',
       data: formData
     });
     result.then((res) => {
       // console.log(res);
-      // console.log("DiaryList 비동기통신 결과:")
-      // console.log(res.data);
+      console.log("DiaryList 비동기통신 결과:")
+      console.log(res.data);
       const responseData = res.data;
-      setDiaryList(responseData);
+      setDiaryList(responseData.diaryList);
     });
-  }, []);//deps
+  }, [pageSize]);//deps
+  //현재 페이지 page 를 전해서 List-Page 결과를 받아서 글 목록 데이터 받기
+  const handlePageChange = (page) => {
+    const id = sessionStorage.getItem("userId");
+    const formData = new FormData();
+    formData.append("userId", id);
+    formData.append("page", page);
+    formData.append("pageSize", pageSize);
+    const result = axios({
+      url: 'http://localhost:8080/mypage/diary/list/sort',
+      method: 'post',
+      data: formData
+    });
+    result.then((res) => {
+      // console.log(res);
+      console.log("handlePageChange에서 DiaryList 비동기통신 결과:")
+      console.log(res.data);
+      const responseData = res.data;
+      setDiaryList(responseData.diaryList);
+    });
+    setCurrentPage(page);
+  }
 
   return (
     <div class="col-9 mx-auto">
@@ -64,21 +91,22 @@ const DiaryList = () => {
         <tbody>
           {diaryList.map((diary) => {
             num += 1;
+
             return (
               <tr key={diary.id}>
 
                 <th scope="row">{num}</th>
-                <td>  <Link to={`/mypage/diary/detail/${diary.id}`} style={{color:'black'}}>{diary.book.name}</Link></td>
+                <td>  <Link to={`/mypage/diary/detail/${diary.id}`} style={{ color: 'black' }}>{diary.book.name}</Link></td>
                 <td>{diary.title}</td>
 
                 <td>{new Date(diary.lastUpdatedDate).toISOString().slice(0, 10)}</td>
-                <td style={{ textAlign: "right"}}>
-                  <button class="btn mr-2 btn-sm btn-light" style={{borderRadius: "12px"}} data-id={diary.id} onClick={(e) => {
+                <td style={{ textAlign: "right" }}>
+                  <button class="btn mr-2 btn-sm btn-light" style={{ borderRadius: "12px" }} data-id={diary.id} onClick={(e) => {
                     const id = e.target.dataset.id;
                     console.log(e.target.dataset.id);
                     navigate(`/mypage/diary/update/${id}`)
                   }}>수정</button>&nbsp;
-                  <button class="btn btn-light btn-sm" data-id={diary.id} style={{borderRadius: "12px"}}
+                  <button class="btn btn-light btn-sm" data-id={diary.id} style={{ borderRadius: "12px" }}
                     onClick={(e) => {
                       const id = e.target.dataset.id;
                       const url = `http://localhost:8080/mypage/diary/delete`;
@@ -101,49 +129,21 @@ const DiaryList = () => {
         </tbody>
       </table>
       <div class="row">
-        <div class="col-md-3">
-          <div class="input-group">
-            <select class="form-select form-select-padding-x-sm" aria-label="select what kind sort you wanna watch" id="sort-type-select">
-              <option>작성일 (최신순)</option>
-              <option>책이름 오름차순</option>
-              <option>책이름 내림차순</option>
-            </select>
-          </div>
+        <div class="col-md-2">
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div>
-            <nav aria-label="Page navigation" class="mx-4">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <Pagination pageSize={pageSize} currentPage={currentPage} onPageChange={handlePageChange} />
           </div>
         </div>
         <div class="col-md-3">
           <div class="input-group">
-            <select class="form-select form-select-padding-x-sm" aria-label="select how many documents are shown" id="pageSize-select">
+            <select class="form-select form-select-padding-x-sm" aria-label="select how many documents are shown" id="pageSize-select"
+              onChange={(e) => {
+                setCurrentPage(1);
+                setPageSize(e.target.value);
+              }}>
               <option value="5">5개씩 보기</option>
               <option value="10">10개씩 보기</option>
               <option value="20">20개씩 보기</option>
