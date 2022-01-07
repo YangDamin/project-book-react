@@ -31,7 +31,9 @@ const Pagination = ({ pageSize, currentPage, onPageChange }) => {
       const totalPageCount = pageInfo.totalPageCount;
       console.log("totalPageCount:::", totalPageCount);
       setPageCount(totalPageCount);
-      const tmpPages = Array.from({ length: pageInfo.pageListSize }, (v, i) => {
+      const length = pageInfo.page + pageInfo.pageListSize > totalPageCount ? totalPageCount - pageInfo.page + 1 : pageInfo.pageListSize;
+      console.log(`전체 페이지 수 : ${totalPageCount}, 페이지 length : ${length}`);
+      const tmpPages = Array.from({ length: length }, (v, i) => {
         console.log(`v값은 ${v}, i값은 ${i}`);
         return i + (pageInfo.page);
       });
