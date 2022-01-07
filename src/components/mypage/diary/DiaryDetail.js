@@ -127,7 +127,7 @@ const DiaryDetail = () => {
 
           </textarea>
           <h5 class="text mt-3" id="profile_title">감상문</h5>
-          <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="한 줄 평"
+          <input type="text" name="title" id="title" class="form-control bg-warning bg-opacity-10 mb-1" placeholder="한 줄 평" value={data.title}
             onChange={(e) => {
               setData({ ...data, title: e.target.value })
             }}></input>
