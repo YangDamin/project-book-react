@@ -34,8 +34,8 @@ const UpdateUser = () => {
             onClick={(e) => {
               e.preventDefault();
               const formData = new FormData();
-              formData.append("userId", "phyw1129@naver.com");
-              formData.append("userPassword", "1234");
+              formData.append("userId", sessionStorage.getItem("email"));
+              formData.append("userPassword", sessionStorage.getItem("password"));
               formData.append("password", document.getElementById("password").value);
               formData.append("phone", document.getElementById("phone").value);
               formData.append("address1", document.getElementById("address1").value);
