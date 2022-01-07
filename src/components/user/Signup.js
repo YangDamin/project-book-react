@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Button, Col, Input, Row, } from 'antd'
 import "antd/dist/antd.css";
 import styles from "./Signup.module.css";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DaumPostcode from "react-daum-postcode";
 
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [address, setAddress] = useState(''); // 주소
   const [addressDetail, setAddressDetail] = useState(''); // 상세주소
 
@@ -138,8 +140,17 @@ const Signup = () => {
 
                           if (res.data.code != 200) {
                             alert('🤦‍♂️회원가입 승인불가🤦‍♂️');
+                            document.querySelector('[name=email]').value = '';
+                            document.querySelector('[name=password]').value ='';
+                            document.querySelector('[name=birth]').value ='';
+                            document.querySelector('[name=name]').value ='';
+                            document.querySelector('[name=phone]').value ='';
+                            document.querySelector('[name=postcode]').value ='';
+                            document.querySelector('[name=address1]').value ='';
+                            document.querySelector('[name=address2]').value ='';
                           } else {
                             alert('👊회원가입 완료👊');
+                            navigate("/user/signin");
                           }
                         });
                       }}>회원가입</Button>
