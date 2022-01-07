@@ -24,49 +24,51 @@ const UpdateUser = () => {
   }, []);//deps
   return (
     <div class="col-7 mx-5">
-      <div className="row">
-        <div className="col-lg-4">
-          <h5 class="mb-3" id="profile_title"><b>회원 정보 수정</b></h5>
-        </div>
-        <div className="col-lg-6"></div>
-        <div className="col-lg-2">
-          <button type="submit" className="btn btn-dark"
-            onClick={(e) => {
-              e.preventDefault();
-              const formData = new FormData();
-              formData.append("userId", sessionStorage.getItem("email"));
-              formData.append("userPassword", sessionStorage.getItem("password"));
-              formData.append("password", document.getElementById("password").value);
-              formData.append("phone", document.getElementById("phone").value);
-              formData.append("address1", document.getElementById("address1").value);
-              formData.append("address2", document.getElementById("address2").value);
-              formData.append("postcode", document.getElementById("postcode").value);
-              const result = axios({
-                url: 'http://localhost:8080/mypage/userUpdate',
-                method: 'post',
-                data: formData
-              });
-              result.then((res) => {
-                console.log(res);
-                console.log(res.data);
-                if (res.data.code == 200) {
-                  alert('회원정보가 성공적으로 변경되었습니다.');
-                  navigate('/mypage');
-                } else if (res.data.code == 400) {
-                  alert('올바른 정보를 입력하여 주십시오.');
-                  document.getElementById("password").value = "";
-                  document.getElementById("phone").value = "";
-                  document.getElementById("address1").value = "";
-                  document.getElementById("address2").value = "";
-                  document.getElementById("postcode").value = "";
-                }
+      <form class="n" novalidate="" onSubmit={(e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("userId", sessionStorage.getItem("email"));
+        formData.append("userPassword", sessionStorage.getItem("password"));
+        formData.append("password", document.getElementById("password").value);
+        formData.append("phone", document.getElementById("phone").value);
+        formData.append("address1", document.getElementById("address1").value);
+        formData.append("address2", document.getElementById("address2").value);
+        formData.append("postcode", document.getElementById("postcode").value);
+        const result = axios({
+          url: 'http://localhost:8080/mypage/userUpdate',
+          method: 'post',
+          data: formData
+        });
+        result.then((res) => {
+          console.log(res);
+          console.log(res.data);
+          if (res.data.code == 200) {
+            alert('회원정보가 성공적으로 변경되었습니다.');
+            sessionStorage.setItem("password", document.getElementById("password").value);
+            navigate('/mypage');
+          } else if (res.data.code == 400) {
+            alert('올바른 정보를 입력하여 주십시오.');
+            document.getElementById("password").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("address1").value = "";
+            document.getElementById("address2").value = "";
+            document.getElementById("postcode").value = "";
+          }
 
-              });
-            }}>변경하기</button>
-        </div>
-      </div>
+        });
+      }}>
+        <div className="row">
 
-      <form class="needs-validation" novalidate="">
+          <div className="col-lg-4">
+            <h5 class="mb-3" id="profile_title"><b>회원 정보 수정</b></h5>
+          </div>
+          <div className="col-lg-6"></div>
+          <div className="col-lg-2">
+            <button type="submit" className="btn btn-dark">변경하기</button>
+          </div>
+        </div>
+
+
         <div class="row">
           <div className="mb-3">
             <label for="name">이름</label>
